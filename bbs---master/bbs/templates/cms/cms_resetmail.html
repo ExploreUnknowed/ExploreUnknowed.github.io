@@ -1,0 +1,32 @@
+{% extends 'cms/cms_base.html' %}
+{% from 'common/_macors.html' import static %}
+{% block title %}
+  修改邮箱
+{% endblock %}
+{% block css_style %}
+    <script src = "{{ static('js/resetemail.js') }}" charset="UTF-8"></script>
+{% endblock %}
+{% block content %}
+   <table>
+        <form class = "layui-form" action = "" method = "post">
+            <div class = "layui-form-item">
+                <div class = "layui-input-inline">
+                    <input type = "text" name = "email" required lay-verify= "required" placeholder="请输入新邮箱地址"
+                        autocomplete = "off" class = "layui-input" value="751439282@qq.com">
+                </div>
+                <button type = "button" class = "layui-btn" id="captcha-btn"> 获取验证码 </button>
+            </div>
+            <div class = "layui-form-item">
+                <div class = "layui-input-inline">
+                    <input type = "text" name = "captcha" required lay - verify = "required" placeholder = "邮箱验证码"
+                        autocomplete = "off" class = "layui-input" style = "margin: 0 0 10px 0">
+                </div>
+                <div class = "layui-form-item">
+                    <div class = "layui-input-left">
+                        <button class = "layui-btn" lay - submit lay - filter = "formDemo" id="submit"> 立即修改 </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </table>
+{% endblock %}

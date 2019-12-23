@@ -1,0 +1,5 @@
+{% macro static(filename) -%}
+    {{ url_for('static' , filename = filename) }}
+{%- endmacro %}
+
+{#引入宏的定义，这样可以方便的对位置进行解析#}

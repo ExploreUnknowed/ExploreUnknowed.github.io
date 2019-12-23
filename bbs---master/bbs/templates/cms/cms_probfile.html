@@ -1,0 +1,52 @@
+{% extends 'cms/cms_base.html' %}
+{% block title %}
+    个人中心
+{% endblock %}
+{% block content %}
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>用户名</td>
+            <td>{{ g.cms_user.username }}</td>
+        </tr>
+        <tr>
+            <td>邮箱</td>
+            <td>{{ g.cms_user.email }}</td>
+        </tr>
+        <tr>
+            <td>角色</td>
+            <td>
+                {% for i in g.cms_user.roles %}
+                    {{ i.name }}
+                    {% if not loop.last %},
+                    {% endif %}
+                {% endfor %}
+            </td>
+
+        </tr>
+        <tr>
+            <td>权限</td>
+            <td>{% for i in g.cms_user.roles %}
+                {{ i.desc }}
+                {% if not loop.last %}
+                    /
+                {% endif %}
+            {% endfor %}
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>加入时间</td>
+            <td>{{ g.cms_user.datatime }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
